@@ -1,0 +1,17 @@
+apiVersion: skaffold/v1beta13
+kind: Config
+
+build:
+  artifacts:
+    - image: registry.vptimmy.ddns.net/homelab/google-ddns-integration
+      # https://skaffold.dev/docs/pipeline-stages/filesync/
+      # Copy app folder to container
+      sync:
+        manual:
+          - src: ./app
+            dest: /app
+
+deploy:
+  kubectl:
+    manifests:
+      - ./cronjob.yaml
