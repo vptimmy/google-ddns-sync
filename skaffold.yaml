@@ -10,6 +10,8 @@ build:
         manual:
           - src: ./app
             dest: /app
+  local:
+    push: true
 
 deploy:
   kubectl:
