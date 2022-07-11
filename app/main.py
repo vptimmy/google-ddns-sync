@@ -26,7 +26,7 @@ def main():
     ip = get_ip()
 
     response = requests.post(
-        f'https://{environ["GMAIL_DDNS_USERNAME"]}:{environ["GMAIL_DDNS_PASSWORD"]}@domains.google.com/nic/update?hostname=hibbard.dev&myip={ip}'
+        f'https://{environ["GOOGLE_DDNS_USERNAME"]}:{environ["GOOGLE_DDNS_PASSWORD"]}@domains.google.com/nic/update?hostname=hibbard.dev&myip={ip}'
     )
 
     if response.status_code != 200:
@@ -36,11 +36,12 @@ def main():
 
 
 if __name__ == '__main__':
-    logger.info('Starting Google-DSN Integration')
+    logger.info('Starting Google-DDNS Integration')
 
-    if 'GMAIL_DDNS_USERNAME' not in environ or 'GMAIL_DDNS_PASSWORD' not in environ:
+    # Check to make sure the environmental variables exist
+    if 'GOOGLE_DDNS_USERNAME' not in environ or 'GOOGLE_DDNS_PASSWORD' not in environ:
         logger.error(
-            'You must provide the GMAIL_DDNS_USERNAME and GMAIL_DDNS_PASSWORD.')
+            'You must provide the GOOGLE_DDNS_USERNAME and GOOGLE_DDNS_PASSWORD.')
         sys.exit(1)
 
     main()

@@ -21,15 +21,15 @@ spec:
                   memory: "300Mi"
 
               env:
-                - name: GMAIL_DDNS_USERNAME
+                - name: GOOGLE_DDNS_USERNAME
                   valueFrom:
                     secretKeyRef:
-                      name: gmail-ddns-credentials
+                      name: google-ddns-credentials
                       key: username
-                - name: GMAIL_DDNS_PASSWORD
+                - name: GOOGLE_DDNS_PASSWORD
                   valueFrom:
                     secretKeyRef:
-                      name: gmail-ddns-credentials
+                      name: google-ddns-credentials
                       key: password
 
           imagePullSecrets:
