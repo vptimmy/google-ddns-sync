@@ -10,7 +10,7 @@ spec:
         spec:
           containers:
             - name: google-ddns-integration
-              image: registry.vptimmy.ddns.net/homelab/google-ddns-integration:v0.0.2
+              image: registry.home.lab/homelab/google-ddns-integration:v0.0.2
 
               resources:
                 requests:
